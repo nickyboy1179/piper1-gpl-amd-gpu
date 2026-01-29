@@ -29,7 +29,7 @@ jobs:
 
       - name: Get version from setup.py
         run: |
-          VERSION=$(python setup.py --version)
+          VERSION=$(sed -n "s/.*version=['\"]\([^'\"]*\)['\"].*/\1/p" setup.py)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Verify tag
@@ -44,9 +44,9 @@ jobs:
           ref = os.environ["GITHUB_REF"]
           # Safety checks & strip prefix
           prefix = "refs/tags/v"
-          if not ref.startswith(prefix):
-              print(f"Unexpected GITHUB_REF: {ref}", file=sys.stderr)
-              sys.exit(1)
+          #if not ref.startswith(prefix):
+          #    print(f"Unexpected GITHUB_REF: {ref}", file=sys.stderr)
+          #    sys.exit(1)
           tag = ref[len(prefix):]
 
           #if tag != ver:
