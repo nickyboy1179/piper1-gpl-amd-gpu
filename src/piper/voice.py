@@ -147,12 +147,9 @@ class PiperVoice:
         providers: list[Union[str, tuple[str, dict[str, Any]]]]
         if use_cuda:
             providers = [
-                (
-                    "CUDAExecutionProvider",
-                    {"cudnn_conv_algo_search": "HEURISTIC"},
-                )
+                    "ROCMExecutionProvider",
             ]
-            _LOGGER.debug("Using CUDA")
+            _LOGGER.debug("Using ROCm")
         else:
             providers = ["CPUExecutionProvider"]
 
