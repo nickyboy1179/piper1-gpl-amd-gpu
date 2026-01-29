@@ -2,6 +2,8 @@
 
 A fast and local neural text-to-speech engine that embeds [espeak-ng][] for phonemization.
 
+This fork is intended for personal testing on AMD Radeon hardware.
+
 Install with:
 
 ``` sh
